@@ -1,0 +1,6 @@
+[
+  { "file": "1-overview.png", "path": "#top", "viewport": { "width": 1280, "height": 800 } },
+  { "file": "2-filtered.png", "path": "#top", "viewport": { "width": 1280, "height": 800 }, "filters": { "discount": "50" } },
+  { "file": "3-search.png", "path": "#top", "viewport": { "width": 1280, "height": 800 }, "filters": { "category": "Kitchen" } },
+  { "file": "4-phone.png", "path": "#top", "viewport": { "width": 390, "height": 844 } }
+]

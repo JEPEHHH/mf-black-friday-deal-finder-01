@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bargain Beacon — checked Black Friday deals</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="main.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap head-row">
+    <a class="brand" href="#top"><span class="mark">◆</span> BARGAIN BEACON</a>
+    <span class="edition">Black Friday 2026 · live board</span>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker">SMALL BOARD, HONEST SIGNALS</p>
+    <h1>Deals worth the click.</h1>
+    <p class="lede">Every price below was read from a published Black Friday roundup on 27 November 2026. Search, narrow it down, and check the source before you buy.</p>
+    <div class="hero-stats">
+      <span><strong>17</strong> checked deals</span>
+      <span><strong id="checked-at">—</strong> price check</span>
+      <span><strong>1</strong> named source</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap main-area">
+  <section class="filters" aria-label="Deal filters">
+    <div class="filter-row">
+      <label>Search
+        <input id="q" type="search" placeholder="Product or store…" autocomplete="off">
+      </label>
+      <label>Category
+        <select id="category"><option value="">All categories</option></select>
+      </label>
+      <label>Store
+        <select id="store"><option value="">All stores</option></select>
+      </label>
+    </div>
+    <div class="filter-row second">
+      <label>Minimum discount
+        <select id="discount">
+          <option value="">Any discount</option>
+          <option value="20">20% or more</option>
+          <option value="30">30% or more</option>
+          <option value="40">40% or more</option>
+          <option value="50">50% or more</option>
+        </select>
+      </label>
+      <label>Sort by
+        <select id="sort">
+          <option value="score">Deal score</option>
+          <option value="discount">Biggest discount</option>
+          <option value="price">Lowest price</option>
+          <option value="newest">Name A–Z</option>
+        </select>
+      </label>
+      <button id="reset" type="button">Clear filters</button>
+    </div>
+    <p id="count" class="count" aria-live="polite"></p>
+  </section>
+
+  <div id="results"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Store links open that store's search for the exact product — offers and prices can change at any moment.</p>
+    <p>Prices and verdicts were read from <a id="source-link" href="#" target="_blank" rel="noopener noreferrer">the source roundup</a> at the time shown above.</p>
+  </div>
+</footer>
+</body>
+</html>
