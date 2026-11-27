@@ -11,6 +11,7 @@ var discount = document.getElementById('discount');
 var sort = document.getElementById('sort');
 var mount = document.getElementById('results');
 var count = document.getElementById('count');
+var chips = document.getElementById('chips');
 
 function fill(select, values) {
   values.forEach(function (value) {
@@ -24,10 +25,46 @@ function fill(select, values) {
 fill(category, categories);
 fill(store, stores);
 
+// Chips are the fast path to a category: same select, one click.
+function buildChips() {
+  var all = document.createElement('button');
+  all.type = 'button';
+  all.className = 'chip';
+  all.dataset.category = '';
+  all.textContent = 'All';
+  chips.appendChild(all);
+
+  categories.forEach(function (name) {
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip';
+    chip.dataset.category = name;
+    chip.textContent = name;
+    chips.appendChild(chip);
+  });
+
+  chips.addEventListener('click', function (event) {
+    var chip = event.target.closest('.chip');
+    if (!chip) return;
+    category.value = chip.dataset.category;
+    refresh();
+    document.getElementById('results').scrollIntoView({ block: 'nearest' });
+  });
+}
+
+function syncChips() {
+  chips.querySelectorAll('.chip').forEach(function (chip) {
+    chip.setAttribute('aria-pressed', String(chip.dataset.category === category.value));
+  });
+}
+
 function refresh() {
   var rows = applyFilters(q.value, category.value, store.value, discount.value, sort.value);
   renderDeals(rows, mount, count);
+  syncChips();
 }
+
+buildChips();
 
 [q, category, store, discount, sort].forEach(function (input) {
   input.addEventListener('input', refresh);
